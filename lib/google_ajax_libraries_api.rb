@@ -61,14 +61,14 @@ module RPH
           # delete the :version option from the options hash, as it plays
           # no role for multiple libraries.
           if libraries.size == 1
-            return javascript_include_tag(Library.new(libraries.first, options).path)
+            return javascript_include_tag((options[:ssl] == true ? 'https://' : 'http://') + Library.new(libraries.first, options).path)
           else
             options.delete(:version)
           end
           
           returning [] do |js|
             libraries.each do |lib|
-              js << javascript_include_tag(Library.new(lib, options).path)
+              js << javascript_include_tag((options[:ssl] == true ? 'https://' : 'http://') + Library.new(lib, options).path)
             end
           end.join("\n")
         end
@@ -85,7 +85,7 @@ module RPH
         GOOGLE_LIBRARIES.keys.each do |lib|
           eval <<-METHOD
             def google_#{lib.to_s}(options={})
-              library = options.delete(:local) ? '#{lib.to_s}' : Library.new(:#{lib.to_s}, options).path
+              library = options.delete(:local) ? '#{lib.to_s}' : (options[:ssl] == true ? 'https://' : 'http://') + Library.new(:#{lib.to_s}, options).path
               javascript_include_tag(library)
             end
           METHOD
