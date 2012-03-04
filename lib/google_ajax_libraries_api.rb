@@ -94,3 +94,5 @@ module RPH
     end
   end
 end
+
+ActionView::Base.send(:include, RPH::Google::AjaxLibraries)
