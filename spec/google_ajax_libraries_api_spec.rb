@@ -3,6 +3,7 @@ require File.join(File.dirname(__FILE__), 'spec_helper')
 describe "RPH::Google::AjaxLibraries" do
   before(:all) do
     @module = RPH::Google::AjaxLibraries
+    request = mock('request', :ssl? => false)
   end
   
   before(:each) do
