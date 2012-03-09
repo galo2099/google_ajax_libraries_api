@@ -14,12 +14,12 @@ module RPH
       
       # used to maintain supported library versions
       SUPPORTED_VERSIONS = {
-        JQUERY        => %w[1.2.3 1.2.6 1.3.0 1.3.1 1.3.2 1.4.0 1.4.1 1.4.2 1.4.3 1.4.4 1.5.0 1.5.1],
-        JQUERYUI      => %w[1.5.2 1.5.3 1.7.0 1.7.1 1.7.2 1.8.0 1.8.1 1.8.2 1.8.4 1.8.5 1.8.6 1.8.7 1.8.8 1.8.9 1.8.10 1.8.11],
+        JQUERY        => %w[1.2.3 1.2.6 1.3.0 1.3.1 1.3.2 1.4.0 1.4.1 1.4.2 1.4.3 1.4.4 1.5.0 1.5.1 1.5.2 1.6.0 1.6.1 1.6.2 1.6.3 1.6.4 1.7.0 1.7.1],
+        JQUERYUI      => %w[1.5.2 1.5.3 1.6.0 1.7.0 1.7.1 1.7.2 1.7.3 1.8.0 1.8.1 1.8.2 1.8.4 1.8.5 1.8.6 1.8.7 1.8.8 1.8.9 1.8.10 1.8.11 1.8.12 1.8.13 1.8.14 1.8.15 1.8.16 1.8.17 1.8.18],
         PROTOTYPE     => %w[1.6.0.2 1.6.0.3 1.6.1.0 1.7.0.0],
-        SCRIPTACULOUS => %w[1.8.1 1.8.2 1.8.3],
-        MOOTOOLS      => %w[1.11 1.2.1 1.2.2 1.2.3 1.2.4 1.2.5 1.3.0 1.3.1],
-        DOJO          => %w[1.1.1 1.2.0 1.2.3 1.3.0 1.3.1 1.3.2 1.4.0 1.4.1 1.4.3 1.5.0 1.5.1 1.6.0],
+        SCRIPTACULOUS => %w[1.8.1 1.8.2 1.8.3 1.9.0],
+        MOOTOOLS      => %w[1.11 1.2.1 1.2.2 1.2.3 1.2.4 1.2.5 1.3.0 1.3.1 1.3.2 1.4.0 1.4.1 1.4.2 1.4.3 1.4.4],
+        DOJO          => %w[1.1.1 1.2.0 1.2.3 1.3.0 1.3.1 1.3.2 1.4.0 1.4.1 1.4.3 1.5.0 1.5.1 1.6.0 1.6.1 1.7.0 1.7.1],
         SWFOBJECT     => %w[2.1 2.2],
         YUI           => %w[2.6.0 2.7.0 2.8.0r4 2.8.1 2.8.2 3.3.0],
         EXT_CORE      => %w[3.0.0 3.1.0],
@@ -34,70 +34,70 @@ module RPH
           :path => "#{BASE_PATH}/#{JQUERY}/VERSION/jquery.min.js",
           :pathu => "#{BASE_PATH}/#{JQUERY}/VERSION/jquery.js",
           :versions => SUPPORTED_VERSIONS[JQUERY],
-          :default_version => SUPPORTED_VERSIONS[JQUERY].max
+          :default_version => SUPPORTED_VERSIONS[JQUERY].last
         ),
         JQUERYUI => OpenStruct.new(
           :name => JQUERYUI,
           :path => "#{BASE_PATH}/#{JQUERYUI}/VERSION/jquery-ui.min.js",
           :pathu => "#{BASE_PATH}/#{JQUERYUI}/VERSION/jquery-ui.js",
           :versions => SUPPORTED_VERSIONS[JQUERYUI],
-          :default_version => SUPPORTED_VERSIONS[JQUERYUI].max
+          :default_version => SUPPORTED_VERSIONS[JQUERYUI].last
         ),
         PROTOTYPE => OpenStruct.new(
           :name => PROTOTYPE, 
           :path => "#{BASE_PATH}/#{PROTOTYPE}/VERSION/prototype.js",
           :pathu => '',
           :versions => SUPPORTED_VERSIONS[PROTOTYPE],
-          :default_version => SUPPORTED_VERSIONS[PROTOTYPE].max
+          :default_version => SUPPORTED_VERSIONS[PROTOTYPE].last
         ),
         SCRIPTACULOUS => OpenStruct.new(
           :name => SCRIPTACULOUS, 
           :path => "#{BASE_PATH}/#{SCRIPTACULOUS}/VERSION/scriptaculous.js",
           :pathu => '',
           :versions => SUPPORTED_VERSIONS[SCRIPTACULOUS],
-          :default_version => SUPPORTED_VERSIONS[SCRIPTACULOUS].max
+          :default_version => SUPPORTED_VERSIONS[SCRIPTACULOUS].last
         ),
         MOOTOOLS => OpenStruct.new(
           :name => MOOTOOLS, 
           :path => "#{BASE_PATH}/#{MOOTOOLS}/VERSION/mootools-yui-compressed.js",
           :pathu => "#{BASE_PATH}/#{MOOTOOLS}/VERSION/mootools.js",
           :versions => SUPPORTED_VERSIONS[MOOTOOLS],
-          :default_version => SUPPORTED_VERSIONS[MOOTOOLS].max
+          :default_version => SUPPORTED_VERSIONS[MOOTOOLS].last
         ),
         DOJO => OpenStruct.new(
           :name => DOJO, 
           :path => "#{BASE_PATH}/#{DOJO}/VERSION/dojo/dojo.xd.js",
           :pathu => "#{BASE_PATH}/#{DOJO}/VERSION/dojo/dojo.xd.js.uncompressed.js",
           :versions => SUPPORTED_VERSIONS[DOJO],
-          :default_version => SUPPORTED_VERSIONS[DOJO].max
+          :default_version => SUPPORTED_VERSIONS[DOJO].last
         ),
         SWFOBJECT => OpenStruct.new(
           :name => SWFOBJECT,
           :path => "#{BASE_PATH}/#{SWFOBJECT}/VERSION/swfobject.js",
           :pathu => "#{BASE_PATH}/#{SWFOBJECT}/VERSION/swfobject_src.js",
           :versions => SUPPORTED_VERSIONS[SWFOBJECT],
-          :default_version => SUPPORTED_VERSIONS[SWFOBJECT].max
+          :default_version => SUPPORTED_VERSIONS[SWFOBJECT].last
         ),
         YUI => OpenStruct.new(
           :name => YUI,
           :path => "#{BASE_PATH}/#{YUI}/VERSION/build/yuiloader/yuiloader-min.js",
           :pathu => "#{BASE_PATH}/#{YUI}/VERSION/build/yuiloader/yuiloader.js",
           :versions => SUPPORTED_VERSIONS[YUI],
-          :default_version => SUPPORTED_VERSIONS[YUI].max
+          :default_version => SUPPORTED_VERSIONS[YUI].last
         ),
         EXT_CORE => OpenStruct.new(
           :name => EXT_CORE,
           :path => "#{BASE_PATH}/#{EXT_CORE.gsub('_','-')}/VERSION/ext-core.js",
           :pathu => "#{BASE_PATH}/#{EXT_CORE.gsub('_','-')}/VERSION/ext-core-debug.js",
           :versions => SUPPORTED_VERSIONS[EXT_CORE],
-          :default_version => SUPPORTED_VERSIONS[EXT_CORE].max
+          :default_version => SUPPORTED_VERSIONS[EXT_CORE].last
         ),
         CHROME_FRAME => OpenStruct.new(
           :name => CHROME_FRAME,
           :path => "#{BASE_PATH}/#{CHROME_FRAME.gsub('_','-')}/VERSION/CFInstall.min.js",
           :pathu => "#{BASE_PATH}/#{CHROME_FRAME.gsub('_','-')}/VERSION/CFInstall.js",
           :versions => SUPPORTED_VERSIONS[CHROME_FRAME],
-          :default_version => SUPPORTED_VERSIONS[CHROME_FRAME].max
+          :default_version => SUPPORTED_VERSIONS[CHROME_FRAME].last
         )
       })
     end
